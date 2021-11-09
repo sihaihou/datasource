@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.reyco.order.core.dao.OrderDao" >
+
+	<select id="get" resultType="Order">
+		select * from `order` where id = #{id}
+	</select>
+	
+	<select id="list" resultType="Order">
+		select * from `order` order by gmtCreate desc
+	</select>
+	
+	<!-- 未支付未过期的订单 -->
+	<select id="listOrderNoExpire" resultType="Order">
+		select * from `order` a where a.state=1 and gmtExpire <![CDATA[>]]> now() order by id asc
+	</select>
+	
+	<!-- 新增订单 -->
+	<insert id="save">
+		insert into `order`
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			no,state,gmtExpire,
+			<if test="desc != null and desc != '' ">
+				`desc`,
+			</if>
+			`gmtCreate`
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			#{no},#{state},#{gmtExpire},
+			<if test="desc != null and desc != '' ">
+				#{desc},
+			</if>
+			now()
+		</trim>
+		<selectKey resultType="int" keyProperty="id" order="AFTER">
+			select @@identity
+		</selectKey>
+	</insert>
+	
+	
+	<update id="update">
+		update `order`
+		<set>
+			<if test="order.state != null">
+				`state`=#{order.state},
+			</if>
+			<if test="order.desc != null">
+				`desc`=#{order.desc}
+			</if>
+		</set>
+		where id=#{order.id}
+	</update>
+	
+	<!-- 过期未支付订单 -->
+	<update id="updateExpire">
+		update `order` set state=3  where state = 1 and gmtExpire <![CDATA[<]]> now()
+	</update>
+	
+	<delete id="delete">
+		update `order` set state = 1 where id=#{id}
+	</delete>
+</mapper>

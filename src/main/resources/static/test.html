@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../static/js/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+	/* http://www.housihai.com/upload/video/1/1542987845292.mp4 */
+	$(function() {
+
+		/* var blob = new Blob(["http://www.housihai.com/upload/video/1/1542987845292.mp4"], {type: "application/octet-binary"}); */
+		$("#video").attr("src",URL.createObjectURL(new Blob(["http://www.housihai.com/imags/bjt3.jpg"])));
+	})
+</script>
+<body>
+	<video id="video" width="400" height="500" controls="controls"></video>
+	<img id="video"  alt="" src="">
+</body>
+
+</html>

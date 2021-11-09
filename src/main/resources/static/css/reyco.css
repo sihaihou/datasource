@@ -1,0 +1,171 @@
+@charset "UTF-8";
+
+/*
+  	溢出文字隐藏100
+*/
+.display_none_100{ 
+	display:inline-block;
+    width:100px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    text-decoration:none;
+}
+/*
+  	溢出文字隐藏120
+*/
+.display_none_120{ 
+	display:inline-block;
+    width:120px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    text-decoration:none;
+}
+/*
+  	溢出文字隐藏150
+*/
+.display_none_150{ 
+	display:inline-block;
+    width:150px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    text-decoration:none;
+}
+/*.display_none_100:hover{
+	overflow: visible;
+}
+.display_none_150:hover{
+	overflow: visible;
+}
+*/
+
+/* 
+	编辑 或 删除 时弹出提示:编辑或删除是否成功
+*/
+.msg_info{
+	display: none;
+	width: 100px; 
+	height: 22px; 
+	position: absolute; 
+	top: 6px;
+	left:360px;
+	background-color: #28FF28; 
+	border-radius: 5px;
+	z-index: 5000; 
+	opacity: 0.8; 
+	background-position: initial initial; 
+	background-repeat: initial initial;
+	text-align: center;
+	font-size:12px;
+	color: black;
+}
+/**
+ *	遮罩层
+ *	<div id="loadingOver" class="loadingOver"></div>      
+ *  <div id="loadingLayout" class="loadingLayout"><img src="../imags/loading.gif" alt=""/></div>  
+ */
+.loadingOver {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5;
+    opacity:0.8;
+    z-index: 1000;
+}
+.loadingLayout {
+    display: none;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    width: 20%;
+    height: 20%;
+    z-index: 1001;
+    text-align:center;
+}
+/*
+	弹窗
+*/
+.black_overlay{
+  display: none;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+  z-index:1001;
+  -moz-opacity: 0.8;
+  opacity:0.8;
+}
+.white_content {
+  display: none;
+  position: absolute;
+  width: 60%;
+  height: 500px;
+  top: 30px;
+  left: 20%;
+  border: 5px solid lightblue;
+  background-color: white;
+  z-index:1002;
+  overflow: auto;
+}
+.updateAccount{
+	display:block;
+	width: 60px;
+	height: 26px;
+	text-align:center;
+	background-color:#438EB9;
+	color: white;
+}
+.updateAccount:hover {
+	background-color:#2468a9;
+	color: white;
+}
+/**
+     分页按钮显示
+	<div class="page">
+  		<span class="pre-page">
+			<a id="firstPage">��ҳ</a>
+			<a id="prePage"><</a>
+		</span>
+		<span class="ele-page">
+			<!-- eleԪ�� -->
+		</span>
+		<span class="next-page">
+			<a id="nextPage">></a>
+			<a id="lastPage">βҳ</a>
+		</span>
+		<span id="totalPage"></span>
+		<span id="id">ǰ��<input autocomplete="off" min="1" max="4" style="width: 40px;height: 25px;border-radius: 3px;">ҳ</span>
+	</div>
+ */
+.page{
+		width: 960px;
+		height: 40px;
+		margin: 0 auto;
+		text-align: center;
+}
+.page span a{
+	display: inline-block;
+	padding: 7px 10px;
+	background: #c0c4cc;
+	font-size: 12px;
+	line-height: 12px;
+	text-decoration: none;
+	color: #393c35;
+	opacity:0.8;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.page span a:hover{
+	background-color:gray;
+	color:white;
+}
+.elemts{
+	margin: 2px;
+}
